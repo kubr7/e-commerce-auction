@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}Auctions{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'auction/css/mai.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div>
+        <img
+          class="logo"
+          src="{% static 'auction/images/logo.png' %}"
+          alt="Logo"
+        />
+      </div>
+      <div class="site-name">
+        <p>{{ site_name }}</p>
+      </div>
+      <div class="nav">
+        <ul class="menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'create' %}">Create Listing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+      <!-- template.html -->
+
+      <div class="sign-in-auth">
+        {% if user.is_authenticated %}
+        <span>Signed in as <strong>{{ user.username }}</strong></span>
+        {% if user.profile_picture %}
+        <a href="{% url 'user' %}"
+          ><img
+            class="profile"
+            src="{{ user.profile_picture.url }}"
+            alt="{{ user.username }}'s Profile Picture"
+        /></a>
+        {% else %}
+        <!-- Add a default image or placeholder if the user has no profile picture -->
+        <a href="{% url 'user' %}"
+          ><img
+            class="profile"
+            src="{% static 'auction/images/user.png' %}"
+            alt="Default Profile Picture"
+        /></a>
+        {% endif %} {% else %} Not signed in. {% endif %}
+      </div>
+    </header>
+    <hr />
+
+    {% block body %} {% endblock %}
+    <footer class="footer-section">
+      <div class="footer-content">
+        <p>&copy; 2023 Your Auction Site. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

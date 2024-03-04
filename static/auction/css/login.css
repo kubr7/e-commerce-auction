@@ -1,0 +1,23 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 50%;
+    margin: auto;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: auto;
+    box-sizing: border-box;
+}
+
+.login-container input[type="submit"] {
+    width: 50%;
+    margin: auto;
+    padding: auto;
+    box-sizing: border-box;
+}

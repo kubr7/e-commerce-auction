@@ -1,0 +1,208 @@
+// _partials/_userProfile.scss
+.sidebar {
+  height: auto;
+  width: 300px;
+  z-index: 1;
+}
+
+.white {
+  color: #000 !important;
+  background-color: #229091 !important;
+}
+
+.animate-left {
+  position: relative;
+  animation: animateleft 0.4s;
+}
+
+.side-container:after,
+.side-container:before,
+.side-panel:after,
+.side-panel:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.side-container,
+.side-panel {
+  padding: 0.01em 16px;
+}
+.side-panel {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.side-right {
+  float: right !important;
+}
+
+.side-jumbo {
+  font-size: 64px !important;
+}
+
+.side-padding {
+  padding: 8px 16px !important;
+}
+
+.side-round {
+  border-radius: 4px;
+}
+
+.side-bar-block .side-dropdown-hover,
+.side-bar-block .side-dropdown-click {
+  width: 100%;
+}
+.side-bar-block .side-dropdown-hover .side-dropdown-content,
+.side-bar-block .side-dropdown-click .side-dropdown-content {
+  min-width: 100%;
+}
+.side-bar-block .side-dropdown-hover .side-button,
+.side-bar-block .side-dropdown-click .side-button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px;
+}
+
+.side-bar-block .side-bar-item {
+  width: 100%;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0;
+}
+.side-bar-block.side-center .side-bar-item {
+  text-align: center;
+}
+
+.side-button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.side-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.side-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.w3-dropdown-hover:hover > .w3-button:first-child,
+.w3-dropdown-click:hover > .w3-button:first-child {
+  background-color: #ccc;
+  color: #000;
+}
+
+.w3-bar-block .w3-dropdown-hover .w3-button,
+.w3-bar-block .w3-dropdown-click .w3-button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px;
+}
+
+.side-button {
+  white-space: normal;
+}
+
+.w3-dropdown-hover.w3-mobile,
+.w3-dropdown-hover.w3-mobile .w3-btn,
+.w3-dropdown-hover.w3-mobile .w3-button,
+.w3-dropdown-click.w3-mobile,
+.w3-dropdown-click.w3-mobile .w3-btn,
+.w3-dropdown-click.w3-mobile .w3-button {
+  width: 100%;
+}
+
+.side-large {
+  font-size: 18px !important;
+}
+
+.side-hover-opacity:hover {
+  opacity: 0.6;
+}
+
+.side-hover-opacity-off:hover {
+  opacity: 1;
+}
+  
+.user-profile {
+  display: flex;
+  height: 100%;
+
+  .user-sec {
+    width: 100%;
+
+    .user-data {
+      @include flex-container;
+      height: auto;
+
+      .user-card {
+        @include height-width(auto, 80%);
+        margin: auto;
+        background-color: #f4eae0;
+        border-radius: 25px;
+        padding: 1rem;
+        box-shadow: $card-box-shadow;
+
+        .user {
+          @include flex-container($direction: row, $align: end, $justify: flex-start);
+          @include height-width(auto, 90%);
+          margin: auto;
+          border-radius: 12px;
+          background-color: #229091;
+          box-shadow: $card-box-shadow;
+
+          .user-details {
+            margin: 10px;
+
+            img {
+              border-radius: 12px;
+            }
+          }
+        }
+
+        .edit-btn {
+          float: right;
+          margin-top: 5px;
+          @include button;
+        }
+      }
+
+      #personal-info {
+        @include height-width(auto, 100%);
+        background-color: lightcyan;
+
+        .info {
+          width: 90%;
+          margin: auto;
+          padding: 2rem;
+
+          h3,
+          h4 {
+            margin: 0;
+            letter-spacing: 2px;
+          }
+        }
+      }
+    }
+  }
+}

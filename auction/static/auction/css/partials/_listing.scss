@@ -1,0 +1,60 @@
+// Listing
+
+.listing-detail {
+     width: 70%;
+     height: auto;
+     margin: auto;
+     padding: 2rem;
+     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12),
+       0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+   
+     .add-to-watch,
+     .remove-from-watch {
+       --c: #229091; /* the color*/
+   
+       box-shadow: 0 0 0 0.1em inset var(--c);
+       --_g: linear-gradient(var(--c) 0 0) no-repeat;
+       background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+         var(--_g) calc(200% - var(--_p, 0%)) 0%,
+         var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+         var(--_g) calc(200% - var(--_p, 0%)) 100%;
+       background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+       outline-offset: 0.1em;
+       transition: background-size 0.4s, background-position 0s 0.4s;
+     }
+     .add-to-watch:hover,
+     .remove-from-watch:hover {
+       --_p: 100%;
+       transition: background-position 0.4s, background-size 0s;
+     }
+     .add-to-watch:active,
+     .remove-from-watch:active {
+       box-shadow: 0 0 9e9Q inset #0009;
+       background-color: var(--c);
+       color: red;
+     }
+   
+     .add-to-watch,
+     .remove-from-watch {
+       font-family: system-ui, sans-serif;
+       font-size: 14px;
+       cursor: pointer;
+       padding: 5px 2px;
+       font-weight: bold;
+       border: none;
+       width: 12rem;
+     }
+   
+     .listing-details {
+       text-align: justify;
+       overflow: auto;
+       height: 462px;
+   
+       .comments {
+         margin-top: 1rem;
+         padding: 1rem;
+         box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12),
+           0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+       }
+     }
+   }

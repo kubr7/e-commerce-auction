@@ -1,0 +1,23 @@
+{% extends "auction/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<section>
+  <div class="login-container my-4">
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="submit" value="Login" />
+    </form>
+  
+    {% if form.errors %}
+    <p class="error-message">{{ form.errors }}</p>
+    {% endif %}
+    <p>Don't have an account?<a href="{% url 'register' %}"> Register here.</a></p> 
+  </div>
+</section>
+
+{% endblock %}
+
+<!-- login.html -->

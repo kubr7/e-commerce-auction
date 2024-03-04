@@ -1,0 +1,72 @@
+.activeListing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.activeListingFilter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 1100px;
+    max-width: 100%;
+    height: 64px;
+    /* border: 1px solid black; */
+}
+
+/* .activeListingFilter .selectBtn{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+    background-color: blueviolet;
+} */
+
+.activeListingResult {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+/* Basic Button Style */
+.selectBtn {
+    display: inline-block;
+    padding: 2px 20px;
+    font-size: 14   px;
+    font-weight: 600;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    color: #3498db;
+    background-color: #ffffff;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  /* Hover Effect */
+  .selectBtn:hover {
+    background-color: #3498db;
+    color: #ffffff;
+  }
+  
+  /* Additional Styles (Optional) */
+  .selectBtn:focus {
+    outline: none;
+  }
+  
+  /* Disable the selectBtn style */
+  .selectBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,86 @@
+{% extends "auction/layout.html" %}
+{% load static %} 
+{% block body %}          
+     <section>                    
+          <!-- Sidebar/menu -->
+          <div class="user-profile">
+               {% if user.is_authenticated %}
+                    <div class="sidebar collapse white animate-left" id="mySidebar"><br>
+                         <div class="side-container">
+                         <a href="#" onclick="w3_close()" class="side-hide-large side-right side-jumbo side-padding w3-hover-grey" title="close menu">
+                         <i class="fa fa-remove"></i>
+                         </a>
+                         {% if user.profile_picture %}
+                              <img class="profile" style="width:45%;" class="side-round" src="{{ user.profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" />
+                         {% else %}
+                              <p>No profile picture available</p>
+                         {% endif %}
+                         <h2>{{ user.firstName }}'s Profile</h2> 
+                         </div>
+                         <div class="side-bar-block">
+                         <a href="#personal-info" onclick="w3_close()" class="side-bar-item side-button side-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right" aria-hidden="true"></i>Personal Information</a> 
+                         <a href="{% url 'watchlist' %}" onclick="w3_close()" class="side-bar-item side-button side-padding"><i class="fa fa-heart fa-fw w3-margin-right" aria-hidden="true"></i>My Watchlist</a>
+                         </div>
+                         <div class="side-panel side-large">
+                         <i class="fa fa-facebook-official side-hover-opacity"></i>
+                         <i class="fa fa-instagram side-hover-opacity"></i>
+                         <i class="fa fa-snapchat side-hover-opacity"></i>
+                         <i class="fa fa-pinterest-p side-hover-opacity"></i>
+                         <i class="fa fa-twitter side-hover-opacity"></i>
+                         <i class="fa fa-linkedin side-hover-opacity"></i>
+                         </div>
+                    </div>
+               {% endif %}
+               <!-- Overlay effect when opening sidebar on small screens -->
+               <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+               <div class="user-sec">
+                    <div class="user-data">
+                         {% if user.is_authenticated %}
+                              <div class="user-card">
+                                   <h3>Hello, {{ user.username }}!</h3>
+                                   <div class="user">
+                                        <div class="user-details">
+                                             {% if user.profile_picture %}
+                                             <img class="profile" style="width:150px; height:150px;" src="{{ user.profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" />
+                                             {% else %}
+                                             <p>No profile picture available</p>
+                                             {% endif %}
+                                        </div>
+                                        <div class="user-details">
+                                             <h1>{{ user.firstName|default:"" }} {{ user.lastName|default:"" }}</h1>
+                                        </div>
+                                        <div class="user-details">
+                                             <h1>{{ user.username }}</h1>
+                                        </div>
+                                        <div class="user-details">
+                                             <h1>{{ user.email }}</h1>
+                                        </div>
+                                        <div class="user-details">
+                                        </div>                   
+                                   </div>
+                                   <a href="{% url 'edit_profile' %}"><button class="edit-btn">Edit</button></a>
+                              </div>
+                              <div id="personal-info">
+                                   <div class="info">
+                                        <h3>Name: {{ user.firstName|default:"" }} {{ user.lastName|default:"" }}</h3>
+                                        <h4>Username: {{ user.username }}</h4>
+                                        <h4>Email: {{ user.email }}</h4>
+                                        <h4>DOB: {{ user.dob }}</h4>
+                                        <h4>Contact Info: {{ user.mobileNo }}</h4>
+                                        <h4>Address: {{ user.address }}</h4>
+                                   </div>
+                              </div>
+                              <div id="my-orders">
+                              </div>         
+                              <div id="my-watchlist">
+                              </div>         
+                              <div id="my-add">
+                              </div>
+                              <div id="my-payments">
+                              </div>                   
+                         {% endif %}
+                    </div>
+               </div>
+          </div>
+     </section>
+{% endblock body %}

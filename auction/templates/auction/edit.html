@@ -1,0 +1,19 @@
+{% extends "auction/layout.html" %} {% load static %} 
+{% block title %} Auction {% endblock %}
+{% block body %}
+<section>
+     <div class="edit-user-profile">
+          <div class="edit-user-data">
+               <p class="heading">Edit Page</p>
+     
+               <form method="post" enctype="multipart/form-data" action="{% url 'user' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <br />
+                    <button type="submit" value="Save" class="saveBtn" role="button">Save Profile</button>
+                    {% comment %} <a class="deleteBtn" href="{% url 'delete_page' title=title %}">Delete</a> {% endcomment %}
+               </form>   
+          </div>
+     </div>
+</section>
+{% endblock %}

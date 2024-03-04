@@ -1,0 +1,18 @@
+.footer-section {
+  display: block;
+  color: #fff; /* Light text color */
+  text-align: center;
+  @include height-width(auto, 100%);
+  position: fixed;
+  bottom: 0;
+  background-color: #f8f1f1;
+
+  .footer-content {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Courier New", Courier, monospace;
+    color: #000;
+    padding: 0.5rem;
+    background-color: #0d1282;
+  }
+}

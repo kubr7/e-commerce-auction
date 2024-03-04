@@ -1,0 +1,25 @@
+.register-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 100%;
+          max-width: 50%;
+          margin: auto;
+      }
+      
+      .register-container input[type="text"],
+      .register-container input[type="email"],
+      .register-container input[type="number"],
+      .register-container input[type="password"] {
+          width: 100%;
+          padding: auto;
+          box-sizing: border-box;
+      }
+      
+      .register-container input[type="submit"] {
+          width: 50%;
+          margin: auto;
+          padding: auto;
+          box-sizing: border-box;
+      }

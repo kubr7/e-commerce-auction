@@ -1,0 +1,22 @@
+{% extends "auction/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <section>
+        <div class="watchList">
+            <h1>Watchlist</h1>
+            <div class="watchList-page">
+                {% for listing in listings %}
+                        <div class="card">
+                            <img class="card-img-top" src="{{ listing.imageurl }}" alt="{{ listing.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ listing.name }}</h5>
+                                <p class="card-text">{{ listing.description }}</p>
+                                <a href="{% url 'listing' id=listing.id %}" class="detailsBtn">Details</a>
+                            </div>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

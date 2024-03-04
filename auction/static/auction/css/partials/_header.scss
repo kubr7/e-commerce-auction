@@ -1,0 +1,68 @@
+// _partials/_header.scss
+header {
+  @include flex-container($direction: row, $align: center, $justify: space-evenly);
+  width: 100%;
+  height: auto;
+  background-color: $primary-color;
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    @include card-styles;
+  }
+
+  .site-name {
+    position: relative;
+
+    p {
+      font: {
+        size: 2.5rem;
+        weight: 700;
+      }
+
+      color: $logo-name-color;
+      font-family: $font-secondary;
+      animation: fadeIn 1s ease-out;
+    }
+  }
+
+  .nav {
+    .menu {
+      display: flex;
+      list-style-type: none;
+
+      .nav-item {
+        margin: 0 10px;
+
+        a.nav-link {
+          text-decoration: none;
+          color: $nav-item-color;
+
+          font: {
+            size: 16px;
+            weight: 700;
+          }
+        }
+      }
+    }
+  }
+
+  .sign-in-auth {
+    @include flex-container($direction: row, $align: center, $justify: center);
+    color: $nav-item-color;
+
+    span {
+      letter-spacing: 1px;
+      font-size: 12px;
+    }
+
+    .profile {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+  }
+
+  // ... (other header styles)
+}

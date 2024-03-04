@@ -1,0 +1,73 @@
+{% extends "auction/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <section>
+        <div class="activeListing">
+            <h1>Active Listings</h1>
+        <div class="selectList">
+            <form action="{% url 'displayCategory' %}" method="POST" class="activeListingFilter">
+                {% csrf_token %}
+                <div class="selectListOptions">
+                    <select name="brand" id="brand">
+                        <option value="" selected disabled>-- Select a Brand --</option>
+                        {% for brand in brands %}
+                            <option value="{{ brand.brandName }}">{{ brand.brandName }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="selectListOptions">
+                    <select name="category" id="category">
+                        <option value="" selected disabled>-- Select a Category --</option>
+                        {% for category in categories %}
+                            <option value="{{ category.categoryName }}">{{ category.categoryName }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="selectBtn" role="button">Go</button>
+            </form>
+        </div>
+        <div class="jumbo">
+            <div class="jumbo-box">
+            </div>
+        </div>
+        <div class="listingResult">
+            <div class="activeListingResult">
+                {% for listing in listings %}
+                    <div class="card">
+                        <img class="card-img-top" src="{{ listing.imageurl }}" alt="{{ listing.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ listing.name }}</h5>
+                            <p class="card-text">{{ listing.description }}</p>
+                            
+                            <div class="actions">
+                                <a href="{% url 'listing' id=listing.id %}" class="detailsBtn">Details</a>
+                                {% if user.is_authenticated and listing.isActive %}
+                                {% if isOwner %}
+                                <form action="{% url 'closeAuction' id=listing.id %}" method="POST" class="mx-3">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Close Auction</button>
+                                </form>
+                                {% endif %}
+                        
+                                {% if isListingInWatchlist %}
+                                <form action="{% url 'removeWatchList' id=listing.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="remove-from-watch">Remove From Watchlist</button>
+                                </form>
+                                {% else %}
+                                <form action="{% url 'addWatchList' id=listing.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="add-to-watch">Add To Watchlist</button>
+                                </form>
+                                {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    </section>    
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "auction/layout.html" %}
+{% load static %}
+
+{% block body %}
+<section>
+  <div class="register-container my-4">
+    <h2>Register</h2>
+  {% if message %}
+  <div>{{ message }}</div>
+  {% endif %}
+
+  <form action="{% url 'register' %}" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="Register" />
+  </form>
+  <p>Already have an account? <a href="{% url 'login' %}">Log In here.</a></p>
+  </div>
+</section>
+{% endblock %}
+
+<!-- auction/register.html -->

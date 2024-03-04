@@ -1,0 +1,57 @@
+// Register Page
+
+.register-container {
+     overflow-y: auto;
+     scroll-behavior: auto;
+     height: 500px;
+   }
+   
+   .register-container,
+   .login-container {
+     @include login-register;
+     h2 {
+       text-align: center;
+       color: #333;
+     }
+   
+     input {
+       @include input;
+     }
+   
+     input[type="text"],
+     input[type="email"],
+     input[type="number"],
+     input[type="password"] {
+       @include input-text;
+     }
+   
+     input[type="submit"] {
+       @include input-submit;
+     }
+   
+     form {
+       @include form;
+     }
+   
+     form > p {
+       margin-bottom: 5px;
+       margin-top: 0;
+     }
+   
+     p > span {
+       font-size: 14px;
+       font-style: italic;
+     }
+   
+     p > label {
+       font-size: 14px;
+       font-weight: 600;
+       font-style: italic;
+       color: black;
+     }
+   
+     form ul > li {
+       font-size: 14px;
+       color: #000814;
+     }
+   }

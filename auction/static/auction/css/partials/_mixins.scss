@@ -1,0 +1,184 @@
+@mixin flex-center($direction: column, $align: center, $justify: center) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin height-width($height: 100%, $width: 100%) {
+     height: $height;
+     width: $width;
+}
+
+// Flex Container Mixin
+@mixin flex-container($direction: column, $align: center, $justify: center) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// Card Mixin
+@mixin card {
+  width: 25rem;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1rem;
+  margin: 10px 0;
+  word-wrap: break-word;
+  background-color: $background-color;
+  background-clip: border-box;
+  box-shadow: $card-box-shadow;
+}
+
+// Button Mixin
+@mixin button($bg-color: $button-bg-color, $color: #fff) {
+  display: block;
+  text-align: center;
+  position: relative;
+  padding: 2px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  border: thick solid $accent-color;
+  color: $accent-color;
+  background-color: $bg-color;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+  &:hover {
+    background-color: $accent-color;
+    color: $color;
+    text-decoration: none;
+  }
+}
+
+// Input Mixin
+@mixin input-styles {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+// Container Mixin
+@mixin container {
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+}
+
+// Header Mixin
+@mixin header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: $primary-color;
+  height: auto;
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  // Add more styles as needed
+}
+
+// Card Title Mixin
+@mixin card-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: $secondary-color;
+}
+
+@mixin card-styles {
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+}
+
+// Button Mixin
+@mixin button($bg-color: $button-bg-color, $color: #fff) {
+  display: block;
+  text-align: center;
+  position: relative;
+  padding: 2px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  border: thick solid $accent-color;
+  color: $accent-color;
+  background-color: $bg-color;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+  &:hover {
+    background-color: $accent-color;
+    color: $color;
+    text-decoration: none;
+  }
+}
+
+@mixin button-styles {
+  display: block;
+  text-align: center;
+  padding: 2px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@mixin login-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  max-width: 100%;
+}
+
+@mixin input-submit {
+  width: 50%;
+  margin-top: 2rem;
+  transform: translateX(50%);
+  padding: auto;
+  box-sizing: border-box;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+@mixin input-text {
+  width: 100%;
+  padding: auto;
+  box-sizing: border-box;
+}
+
+@mixin form {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
